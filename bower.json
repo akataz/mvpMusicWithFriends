@@ -1,0 +1,17 @@
+{
+  "name": "music_with_friends",
+  "version": "0.0.1",
+  "authors": [Tyrus Brenc],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/lib"
+  ],
+  "dependencies": {
+    "angular": "~1.3.16",
+    "angular-route": "~1.3.16",
+    "angular-mocks": "~1.3.16"
+  }
+}

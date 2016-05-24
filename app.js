@@ -7,21 +7,21 @@ angular.module('mwFriends', [
 ])
 .config(function ($routeProvider, $httpProvider) {
   $routeProvider
-    .when('/signin', {
-      templateUrl: 'app/signin.html',
-      controller: 'AuthController'
-    })
-    .when('/signup', {
-      templateUrl: 'app/signup.html',
-      controller: 'AuthController'
-    })
+    // .when('/signin', {
+    //   templateUrl: 'app/signin.html',
+    //   controller: 'AuthController'
+    // })
+    // .when('/signup', {
+    //   templateUrl: 'app/signup.html',
+    //   controller: 'AuthController'
+    // })
     .when('/videos', {
       templateUrl: 'app/links/videos.html',
       controller: 'VideosController',
     })
-    .when('/signout', {
-      redirectTo: '/signin'
-    })
+    // .when('/signout', {
+    //   redirectTo: '/signin'
+    // })
     .otherwise({
       redirectTo: '/videos'
     });

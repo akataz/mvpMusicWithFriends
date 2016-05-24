@@ -1,4 +1,4 @@
-angular.module('shortly.services', [])
+angular.module('mwFriends.factories', [])
 
 .factory('Videos', function ($http) {  
     var data = {};
@@ -31,7 +31,8 @@ angular.module('shortly.services', [])
         console.log(err);
         return err;
       }
-)    };
+      )
+    };
     return {
       getAll: getAll,
       addOne: addOne,

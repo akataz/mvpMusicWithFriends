@@ -5,6 +5,9 @@
                 <input type="text" ng-model='add' placeholder='add video'>
             </li>
             <li>
+                <input type="text" ng-model='add' placeholder='add title'>
+            </li>
+            <li>
                 <input type="text" ng-model='search' placeholder='search videos'>
             </li>
         </ul>
@@ -12,19 +15,19 @@
     <div ng-controller="myCtrl">
         <ng-youtube-embed 
             url="link" 
-            width="400px" 
-            height="400px" 
+            width="560px" 
+            height="360px" 
             autohide="true" 
             theme="light">
         </ng-youtube-embed>
     </div>
     <div class="videos">
-        <div class="video" ng-repeat="video in data.videos | filter:search | orderBy : '-visits'">
+        <div class="video" ng-repeat="video in data.videos | filter:search | orderBy : '-views'">
             <img src="assets/redirect_icon.png">
             <a href="#">
                 <div class="info">
                     <div class="visits">
-                        <span class="count">{{ video.visits }}</span>Visits
+                        <span class="count">{{ video.views }}</span>Visits
                     </div>
                     <div class="title">{{ video.title }}</div>
                     <div class="original">{{ video.url }}</div>
