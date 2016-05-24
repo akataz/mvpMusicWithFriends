@@ -4,7 +4,7 @@ module.exports = function (app, express) {
 
   // authentication middleware used to decode token and made available on the request
   // app.get('/', function(){
-    
+
   // })
   app.get('/api/videos/', videosController.allLinks);
   app.post('/api/videos/', videosController.newLink);
@@ -15,9 +15,3 @@ module.exports = function (app, express) {
   app.use(helpers.errorHandler);
 };
 
-
-
-// var groupController = require('../groups/groupController.js');
-  // app.post('/api/groups/signin', groupController.signin);
-  // app.post('/api/groups/signup', groupController.signup);
-  // app.get('/api/users/signedin', groupController.checkAuth);

@@ -12,17 +12,9 @@ module.exports = function(grunt) {
         dest: 'public/dist/clientBuilt.js'
       }
     },
-    mochaTest: {
-      test: {
-        options: {
-          reporter: 'spec'
-        },
-        src: ['test/**/*.js']
-      }
-    },
     nodemon: {
       dev: {
-        script: 'index.js'
+        script: 'server.js'
       }
     },
 

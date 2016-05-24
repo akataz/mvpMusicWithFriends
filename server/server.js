@@ -31,7 +31,9 @@ require('./config/middleware.js')(app, express);
 require('./config/routes.js')(app, express);
 
 // start listening to requests on port 8000
-app.listen(app.get('port'));
+app.listen(app.get('port'), function(){
+   console.log('express server listening on port ' + app.get('port'));
+    });
 
 // export our app for testing and flexibility, required by index.js
 module.exports = app;
