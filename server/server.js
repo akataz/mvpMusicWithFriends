@@ -5,6 +5,7 @@ var path = require('path');
 var app = express();
 
 var handler = require('./config/routes');
+
 app.set('port', process.env.PORT || 3000);
 
 var sequelize = new Sequelize("mwFriends", "root", null, {
@@ -14,13 +15,14 @@ var sequelize = new Sequelize("mwFriends", "root", null, {
 
 var Video = sequelize.define('Video', {
   url: Sequelize.STRING,
-  title: Sequelize.STRING,
+  title: Sequelize.STRING
   // views: Sequelize.INTEGER
 });
+app.use(express.static("../public/client/"));
 
-app.get('/', function(req, res){
-  res.sendfile(path.resolve('../public/client/index.html'));
-});
+// app.get('/', function(req, res){
+//   res.sendfile(path.resolve('../public/client/index.html'));
+// });
 // configure our server with all the middleware and routing
 require('./config/middleware.js')(app, express);
 require('./config/routes.js')(app, express);
@@ -32,7 +34,7 @@ app.listen(app.get('port'), function(){
 
 // export our app for testing and flexibility, required by app.js
 module.exports = app;
-// app.use(express.static(path.join(__dirname, "../public/client/index.html")));
+
 //The line below specifies your views folder
 // app.set('', path.join(__dirname, './public/client'));
 

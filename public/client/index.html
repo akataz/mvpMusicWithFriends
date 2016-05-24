@@ -13,14 +13,17 @@
 
 <body>
     <h1>Music with Friends</h1>
-    <div id='container' ng-app='mwFriends.videos' ng-controller="VideosController">
+    <div id='container' ng-app='mwFriends' ng-controller="VideosController">
         {{ hello }}
-        <form name="videoAdd" ng-submit='addLink()' novalidate>  
-          <input type="url" ng-model='video.url' placeholder='add video' required><br />
-                
-          <input type="text" ng-model='video.title' placeholder='add title' required><br />
-          <button type='submit' ng-disabled="videoAdd.$invalid">Add Video</button>     
-          <p ng-show="videoAdd.$invalid && !videoAdd.$pristine">Please enter a valid URL</p>    
+        <!-- <pre> data </pre>
+        <pre> {{ hello }} </pre> -->
+        <form name="videoAdd" ng-submit='addLink()' novalidate>
+            <input type="url" ng-model='video.url' placeholder='add video' required>
+            <br />
+            <input type="text" ng-model='video.title' placeholder='add title' required>
+            <br />
+            <button type='submit' ng-disabled="videoAdd.$invalid">Add Video</button>
+            <p ng-show="videoAdd.$invalid && !videoAdd.$pristine">Please enter a valid URL</p>
         </form>
         <div ng-controller="utubeController">
             <ng-youtube-embed url="link" width="560px" height="360px" autohide="true" theme="light">
@@ -40,17 +43,68 @@
             </div>
         </div>
     </div>
-    <script src="lib/angular/angular.js"></script>
-    <script src="lib/angular-route/angular-route.js"></script>
-    <script src="lib/angular-mocks/angular-mocks.js"></script>
-    <script src="app/app.js"></script>
-    <script src="lib/videos.js"></script>
-    <script src="lib/factories.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <!-- <script src="lib/angular/angular.js"></script> -->
+    <script src="/lib/angular-route/angular-route.js"></script>
+    <script src="/lib/angular-mocks/angular-mocks.js"></script>
+    <!-- <script src="./app/app.js"></script> -->
+    <script src="/app/factories.js"></script>
+    <script src="/app/videos.js"></script>
+    
+    <script>
+//     var app = angular.module('mwFriends', [])
 
-        <!-- load up script tags down here -->
+// app.controller('VideosController', function($scope, Videos) {
+//     $scope.data = {};
+//     $scope.hello = "hello world";
+//     angular.extend($scope, Videos);
+
+
+//     var gAll = function() {
+//         Videos.getAll()
+//             .then(function(data) {
+//                 $scope.data.videos = data;
+//             })
+//             .catch(function(err) {
+//                 console.error(err);
+//             });
+//     }
+//     gAll();
+
+//     $scope.video = {};
+//     $scope.addLink = function() {
+//         $scope.loading = true;
+//         Videos.addOne($scope.video)
+//             .then(function() {
+//                 $scope.loading = false;
+//                 $location.path('/')
+//             })
+//             .catch(function(err) {
+//                 console.log(err);
+//             })
+//     };
+// });
+
+// app.controller('utubeController', ['$scope', function($scope) {
+//     $scope.videoList = $scope.data;
+//     $scope.playVideo = function() {
+//         $scope.link = 'https://www.youtube.com/watch?v=OPmOXJtxxoo';
+//         // $scope.link = video.url;
+//     }
+
+// }]);
+
+
+
+
+// var myApp = angular.module('myApp', ['ngYoutubeEmbed']);
+
+    </script>    
+    
+    <!-- load up script tags down here -->
 </body>
 
 </html>
-                <!-- <li>
+<!-- <li>
                     <input type="text" ng-model='search' placeholder='search videos'>
                 </li> -->
