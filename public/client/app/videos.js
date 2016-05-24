@@ -31,14 +31,14 @@ app.controller('VideosController', function($scope, Videos) {
     };
 });
 
-// app.controller('utubeController', ['$scope', function($scope) {
-//     $scope.videoList = $scope.data;
-//     $scope.playVideo = function() {
-//         $scope.link = 'https://www.youtube.com/watch?v=OPmOXJtxxoo';
-//         // $scope.link = video.url;
-//     }
+app.controller('utubeController', ['$scope', function($scope) {
+    $scope.videoList = $scope.data;
+    // $scope.playVideo = function() {
+    $scope.link = 'https://www.youtube.com/watch?v=V6cMkhhqn6k';
+        // $scope.link = video.url;
+    // }
 
-// }]);
+}]);
 
 
 
