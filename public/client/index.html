@@ -5,22 +5,22 @@
     <meta charset="utf-8" />
     <title>Music with Friends</title>
     <link rel="stylesheet" type="text/css" href="client/style.css">
-<!--     <script src="/lib/jquery.js"></script>
+    <!-- <script src="/lib/jquery.js"></script>
     <script src="/lib/underscore.js"></script>
-    <script src="/lib/handlebars.js"></script> -->
-    <script src="./bower_components/angular/angular.min.js"></script>
+    <script src="/lib/handlebars.js"></script>
+    <script src="/lib/angular.js"></script> -->
 </head>
 
 <body>
     <h1>Music with Friends</h1>
     <div id='container' ng-app='mwFriends.videos' ng-controller="VideosController">
-        
+        {{ hello }}
         <form name="videoAdd" ng-submit='addLink()' novalidate>  
-          <input type="url" ng-model='video.url' placeholder='add video'><br />
+          <input type="url" ng-model='video.url' placeholder='add video' required><br />
                 
-          <input type="text" ng-model='video.title' placeholder='add title'><br />
+          <input type="text" ng-model='video.title' placeholder='add title' required><br />
           <button type='submit' ng-disabled="videoAdd.$invalid">Add Video</button>     
-          <p ng-show="videoAdd.$invalid && videoAdd.$dirty">Please enter a valid URL</p>    
+          <p ng-show="videoAdd.$invalid && !videoAdd.$pristine">Please enter a valid URL</p>    
         </form>
         <div ng-controller="utubeController">
             <ng-youtube-embed url="link" width="560px" height="360px" autohide="true" theme="light">
@@ -40,6 +40,13 @@
             </div>
         </div>
     </div>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script src="lib/angular-mocks/angular-mocks.js"></script>
+    <script src="app/app.js"></script>
+    <script src="lib/videos.js"></script>
+    <script src="lib/factories.js"></script>
+
         <!-- load up script tags down here -->
 </body>
 

@@ -9,13 +9,13 @@ angular.module('mwFriends', [
     //   templateUrl: 'app/signin.html',
     //   controller: 'AuthController'
     // })
-    // .when('/signup', {
+    // .when('/', {
     //   templateUrl: 'app/signup.html',
     //   controller: 'AuthController'
     // })
     .when('/videos', {
-      templateUrl: 'app/links/videos.html',
-      controller: 'VideosController',
+      templateUrl: 'public/client/index.html',
+      controller: 'VideosController'
     })
     // .when('/signout', {
     //   redirectTo: '/signin'

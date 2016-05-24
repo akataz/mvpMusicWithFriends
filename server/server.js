@@ -10,7 +10,6 @@ app.set('port', process.env.PORT || 3000);
 var sequelize = new Sequelize("mwFriends", "root", null, {
   dialect: 'sqlite',
   storage: '/../mwFriends.sqlite'
-
 });
 
 var Video = sequelize.define('Video', {
