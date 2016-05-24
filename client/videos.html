@@ -1,0 +1,35 @@
+<div id='container' ng-app='mwFriends.videos' ng-controller="VideosController">
+    <nav class="navigation">
+        <ul>
+            <li>
+                <input type="text" ng-model='add' placeholder='add video'>
+            </li>
+            <li>
+                <input type="text" ng-model='search' placeholder='search videos'>
+            </li>
+        </ul>
+    </nav>
+    <div ng-controller="myCtrl">
+        <ng-youtube-embed 
+            url="link" 
+            width="400px" 
+            height="400px" 
+            autohide="true" 
+            theme="light">
+        </ng-youtube-embed>
+    </div>
+    <div class="videos">
+        <div class="video" ng-repeat="video in data.videos | filter:search | orderBy : '-visits'">
+            <img src="assets/redirect_icon.png">
+            <a href="#">
+                <div class="info">
+                    <div class="visits">
+                        <span class="count">{{ video.visits }}</span>Visits
+                    </div>
+                    <div class="title">{{ video.title }}</div>
+                    <div class="original">{{ video.url }}</div>
+            </a>
+            </div>
+        </div>
+    </div>
+</div>
