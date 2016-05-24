@@ -1,9 +1,9 @@
-var app = angular.module('mwFriends', ['mwFriends.factories']);
+var app = angular.module('mwFriends', ['mwFriends.factories', 'ngYoutubeEmbed']);
 
 app.controller('VideosController', function($scope, Videos) {
     $scope.data = {};
     $scope.hello = "hello world";
-    // angular.extend($scope, Videos);
+    angular.extend($scope, Videos);
 
 
     var gAll = function() {
