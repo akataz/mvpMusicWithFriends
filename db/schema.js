@@ -10,7 +10,6 @@ var sequelize = new Sequelize("mwFriends", "root", "", {
 });
 
 var Video = sequelize.define('Video', {
-  user_id: Sequelize.INTEGER,
   url: Sequelize.STRING,
   title: Sequelize.STRING,
   views: Sequelize.INTEGER
@@ -18,6 +17,7 @@ var Video = sequelize.define('Video', {
 
 
 
+  // user_id: Sequelize.INTEGER,
 /* first define the data structure by giving property names and datatypes
  * See http://sequelizejs.com for other datatypes you can use besides STRING. */
 // var Group = sequelize.define('Group', {

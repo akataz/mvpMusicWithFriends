@@ -1,23 +1,53 @@
 <!doctype html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <title>Music with Friends</title>
     <link rel="stylesheet" type="text/css" href="client/style.css">
     <!-- <script src="/lib/jquery.js"></script>
     <script src="/lib/underscore.js"></script>
-    <script src="/lib/backbone.js"></script>
     <script src="/lib/handlebars.js"></script> -->
+</head>
 
-  </head>
-
-  <body>
+<body>
     <h1>Music with Friends</h1>
-
-
-<!--   <h3 ng-if="!data.videos"> No Links <h3> -->
-    <div ng-view></div>
+    <!--   <h3 ng-if="!data.videos"> No Links <h3> -->
+    <div id='container' ng-app='mwFriends.videos' ng-controller="VideosController">
+        <nav class="navigation">
+            <ul>
+                <li>
+                    <input type="text" ng-model='add' placeholder='add video'>
+                </li>
+                <li>
+                    <input type="text" ng-model='add' placeholder='add title'>
+                </li>
+                <li>
+                    <input type="text" ng-model='search' placeholder='search videos'>
+                </li>
+            </ul>
+        </nav>
+        <div ng-controller="myCtrl">
+            <ng-youtube-embed url="link" width="560px" height="360px" autohide="true" theme="light">
+            </ng-youtube-embed>
+        </div>
+        <div class="videos">
+            <div class="video" ng-repeat="video in data.videos | filter:search | orderBy : '-views'">
+                <img src="assets/redirect_icon.png">
+                <a href="#">
+                    <div class="info">
+                        <div class="visits">
+                            <span class="count">{{ video.views }}</span>Visits
+                        </div>
+                        <div class="title">{{ video.title }}</div>
+                        <div class="original">{{ video.url }}</div>
+                </a>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
     <!-- load up script tags down here -->
-  </body>
+</body>
+
 </html>

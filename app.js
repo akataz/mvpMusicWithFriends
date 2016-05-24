@@ -1,8 +1,5 @@
 angular.module('mwFriends', [
-  'shortly.services',
-  'shortly.links',
-  'shortly.shorten',
-  'shortly.auth',
+  'mwFriends.factories',
   'ngRoute'
 ])
 .config(function ($routeProvider, $httpProvider) {
