@@ -1,7 +1,7 @@
 var app = angular.module('mwFriends', ['mwFriends.factories', 'ngYoutubeEmbed']);
 
 app.controller('VideosController', function($scope, Videos) {
-    $scope.data = {};
+    $scope.data = {videos: {}};
     $scope.hello = "hello world";
     angular.extend($scope, Videos);
 
@@ -18,12 +18,13 @@ app.controller('VideosController', function($scope, Videos) {
     gAll();
 
     $scope.video = {};
+    console.log($scope.video);
     $scope.addLink = function() {
         $scope.loading = true;
         Videos.addOne($scope.video)
             .then(function() {
                 $scope.loading = false;
-                $location.path('/')
+                // $location.path('/')
             })
             .catch(function(err) {
                 console.log(err);
@@ -33,8 +34,9 @@ app.controller('VideosController', function($scope, Videos) {
 
 app.controller('utubeController', ['$scope', function($scope) {
     $scope.videoList = $scope.data;
-    // $scope.playVideo = function() {
-    $scope.link = 'https://www.youtube.com/watch?v=V6cMkhhqn6k';
+    $scope.playVideo = function($scope.video.url) {
+        $scope.link = $scope.video.url;
+    }
         // $scope.link = video.url;
     // }
 

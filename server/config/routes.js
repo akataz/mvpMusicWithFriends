@@ -1,4 +1,4 @@
-var videosController = require('../videos/videoController.js');
+var model = require('../models.js');
 var helpers = require('./helpers.js');
 module.exports = function (app, express) {
 
@@ -6,8 +6,22 @@ module.exports = function (app, express) {
   // app.get('/', function(){
 
   // })
-  app.get('/api/videos/', videosController.allLinks);
-  app.post('/api/videos/', videosController.newLink);
+  console.log("HEYYYYYY")
+  console.log(model.videos)
+  // app.get('/api/videos/', model.videos.add(function(err, result){
+  //   if(err) console.log(err);
+  //   else {
+  //     res.send(result);
+  //   }
+
+  // }));
+  // app.post('/api/videos/', model.videos.pull(function(err, result){
+  //   if(err) console.log(err);
+  //   else {
+  //     res.send(result);
+  //   }
+
+  // }));
 
   // If a request is sent somewhere other than the routes above,
   // send it through our custom error handler

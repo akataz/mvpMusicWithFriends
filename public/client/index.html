@@ -5,16 +5,11 @@
     <meta charset="utf-8" />
     <title>Music with Friends</title>
     <link rel="stylesheet" type="text/css" href="client/style.css">
-    <!-- <script src="/lib/jquery.js"></script>
-    <script src="/lib/underscore.js"></script>
-    <script src="/lib/handlebars.js"></script>
-    <script src="/lib/angular.js"></script> -->
 </head>
 
 <body>
     <h1>Music with Friends</h1>
     <div id='container' ng-app='mwFriends' ng-controller="VideosController">
-        {{ hello }}
         <!-- <pre> data </pre>
         <pre> {{ hello }} </pre> -->
         <form name="videoAdd" ng-submit='addLink()' novalidate>
@@ -22,30 +17,29 @@
             <br />
             <input type="text" ng-model='video.title' placeholder='add title' required>
             <br />
+            <pre> {{ video }}
             <button type='submit' ng-disabled="videoAdd.$invalid">Add Video</button>
-            <p ng-show="videoAdd.$invalid && !videoAdd.$pristine">Please enter a valid URL</p>
+            <p ng-show="videoAdd.$invalid && !videoAdd.$pristine">Please Fill In both Boxes</p>
         </form>
         <div ng-controller="utubeController">
             <ng-youtube-embed url="link" width="560px" height="360px" autohide="true" theme="light">
             </ng-youtube-embed>
-        </div>
+        
         <div class="videos">
             <div class="video" ng-repeat="video in data.videos | filter:search | orderBy : '-views'">
-                <a href="#">
+                <a href="#" ng-click='playVideo()'>
                     <div class="info">
-                        <div class="visits">
-                            <span class="count">{{ video.views }}</span>Visits
-                        </div>
                         <div class="title">{{ video.title }}</div>
                         <div class="original">{{ video.url }}</div>
+                    </div>
                 </a>
-                </div>
+
             </div>
+        </div>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <script src="/lib/ng-youtube-embed/build/ng-youtube-embed.min.js"></script>
-    <!-- <script src="lib/angular/angular.js"></script> -->
     <script src="/lib/angular-route/angular-route.js"></script>
     <script src="/lib/angular-mocks/angular-mocks.js"></script>
 
@@ -53,60 +47,13 @@
     <script src="/app/factories.js"></script>
     <script src="/app/videos.js"></script>
     
-    <script>
-//     var app = angular.module('mwFriends', [])
-
-// app.controller('VideosController', function($scope, Videos) {
-//     $scope.data = {};
-//     $scope.hello = "hello world";
-//     angular.extend($scope, Videos);
-
-
-//     var gAll = function() {
-//         Videos.getAll()
-//             .then(function(data) {
-//                 $scope.data.videos = data;
-//             })
-//             .catch(function(err) {
-//                 console.error(err);
-//             });
-//     }
-//     gAll();
-
-//     $scope.video = {};
-//     $scope.addLink = function() {
-//         $scope.loading = true;
-//         Videos.addOne($scope.video)
-//             .then(function() {
-//                 $scope.loading = false;
-//                 $location.path('/')
-//             })
-//             .catch(function(err) {
-//                 console.log(err);
-//             })
-//     };
-// });
-
-// app.controller('utubeController', ['$scope', function($scope) {
-//     $scope.videoList = $scope.data;
-//     $scope.playVideo = function() {
-//         $scope.link = 'https://www.youtube.com/watch?v=OPmOXJtxxoo';
-//         // $scope.link = video.url;
-//     }
-
-// }]);
-
-
-
-
-// var myApp = angular.module('myApp', ['ngYoutubeEmbed']);
-
-    </script>    
+   
     
     <!-- load up script tags down here -->
 </body>
 
 </html>
-<!-- <li>
-                    <input type="text" ng-model='search' placeholder='search videos'>
-                </li> -->
+
+                        <!-- <div class="visits">
+                            <span class="count">{{ video.views }}</span>Visits
+                        </div> -->

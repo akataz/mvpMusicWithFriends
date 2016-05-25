@@ -10,14 +10,20 @@ app.set('port', process.env.PORT || 3000);
 
 var sequelize = new Sequelize("mwFriends", "root", null, {
   dialect: 'sqlite',
-  storage: '/../mwFriends.sqlite'
+  storage: '../../mwFriends.sqlite'
 });
 
-var Video = sequelize.define('Video', {
+Video = sequelize.define('Video', {
   url: Sequelize.STRING,
   title: Sequelize.STRING
   // views: Sequelize.INTEGER
 });
+
+Video.sync();
+Video.create({url: 'https://www.youtube.com/watch?v=V6cMkhhqn6k', title: 'feelin alright'});
+
+
+
 app.use(express.static("../public/client/"));
 
 // app.get('/', function(req, res){
